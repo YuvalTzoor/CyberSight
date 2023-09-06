@@ -1,44 +1,70 @@
 
 # Cybersight 👁️
 
-To run the web application, there are several steps that must be completed:
+Cybersight is a web application designed to operate seamlessly within a Dev Container. This setup simplifies the development process, allowing you to focus on building amazing features.
 
-    Due to the complexity of the app, we've decided to develop and maintain it in a 
-    manner that makes it suitable for execution within a development container (based on Docker).
-    
-1) Visit the Docker Desktop download page and download the package appropriate for your system: Docker Desktop    
-2) After downloading and installing, launch the Docker Desktop application.
-3) Download the repository (or clone it locally) and open it in Visual Studio Code.
-4) Next, download the DevContainer extension for VS Code.
-5) After installation, press Ctrl+Shift+P and type 'Build and Open in Container' (note that it starts with 'Dev Containers:').
-The development container will open. At this point, you'll need to wait for the container build process to complete.
+## Table of Contents
 
-6) Once the build is finished, navigate to the top bar where the project name and magnifying glass icon are displayed (this is where you initially ran the build command). Click on 'Run Task' and select 'Run All'. This will initiate the backend, frontend, Flask, and Prisma UI services.
-\
-By following these steps, you should be able to successfully run the web application in a development container.
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [Running the Application](#running-the-application)
+4. [Database UI Access](#database-ui-access)
+5. [Authors](#authors)
+6. [License](#license)
 
+## Prerequisites
 
+- Docker Desktop
+- Visual Studio Code
+- Dev Containers extension for VS Code
+
+## Installation
+
+1. **Download Docker Desktop:**  
+   Visit the [Docker Desktop download page](https://www.docker.com/products/docker-desktop/#) and choose the package suitable for your system. Follow the installation instructions.
+
+2. **Launch Docker Desktop:**  
+   After installation, launch the Docker Desktop application.
+
+3. **Clone the Repository:**  
+   Clone this repository locally and open it in Visual Studio Code.
+
+4. **Install Dev Containers Extension:**  
+   In VS Code, navigate to the Extensions Marketplace and install the 'Dev Containers' extension.
+
+## Running the Application
+
+1. **Build Dev Container:**  
+   Press `Ctrl+Shift+P` to open the command palette. Type and select 'Dev Containers: Build and Open in Container'. The container build process will start; this may take a few minutes.
+
+    - **View Build Logs:**  
+      Click on 'Show Log' in the bottom right corner to monitor the build process in real time.
+
+2. **Run Server and Client:**  
+   After the build completes, wait for the terminal to display 'Done. Press any key to close the terminal.' Then, navigate to the top bar in VS Code and click on 'Run Task'. Select 'Run Server, Client and Flask'.
+
+3. **Access the Application:**  
+   Once the tasks are complete, open your web browser and go to [http://localhost:4200](http://localhost:4200) to access the client-side homepage.
+
+## Database UI Access
+
+To access the UI of the databases, go back to 'Run Task' in VS Code and select 'Prisma Studio (All)'.
 
 ## Authors
 
-👤 **Yuval Tzoor**
+👤 **Yuval Tzoor**  
+- [GitHub](https://github.com/YuvalTzoor)
 
-* Github: [@YYuvalTzoor](https://github.com/YuvalTzoor)
+👤 **Saar Rozental**  
+- [GitHub](https://github.com/SaarXD)
 
-👤 **Saar Rozental**
+👤 **Shaked Partush**  
+- [GitHub](https://github.com/shak4560)
 
-* Github: [@SaarXD](https://github.com/SaarXD)
-
-👤 **Shaked Partush**
-
-* Github: [@shak4560](https://github.com/shak4560/)
-
-👤 **Yuval Abramovich**
-
-* Github:
-
+👤 **Yuval Abramovich**  
+- [GitHub](https://github.com/Yuvalabra)
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
 
