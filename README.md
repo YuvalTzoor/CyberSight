@@ -42,8 +42,10 @@ Cybersight is a web application designed to operate seamlessly within a Dev Cont
 
 2. **Run Server and Client:**  
    After the build completes, wait for the terminal to display 'Done. Press any key to close the terminal.' Then, navigate to the top bar in VS Code and click on 'Run Task'. Select 'Run Server, Client and Flask'.
+   ![Example GIF](./run_tasks.gif)
 
-3. **Access the Application:**  
+
+4. **Access the Application:**  
    Once the tasks are complete, open your web browser and go to [http://localhost:4200](http://localhost:4200) to access the client-side homepage.
 
 ## Database UI Access
