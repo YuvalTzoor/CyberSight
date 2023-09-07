@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "Angular.ng-template",
+    "GitHub.copilot",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "visualstudioexptteam.intellicode-api-usage-examples",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "ms-python.python",
+    "gkalpak.aio-docs-utils",
+    "dbaeumer.vscode-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "christian-kohler.path-intellisense",
+    "Prisma.prisma",
+    "EditorConfig.EditorConfig"
+  ]
+}

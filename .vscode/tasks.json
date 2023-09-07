@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "pnpm build",
+      "group": "build"
+    },
+    {
+      "label": "Run Server",
+      "type": "shell",
+      "command": "pnpm -F server dev",
+      "isBackground": true,
+      "presentation": {
+        "group": "runAppsGroup",
+        "panel": "new",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Client",
+      "type": "shell",
+      "command": "pnpm -F client dev",
+      "isBackground": true,
+      "presentation": {
+        "group": "runAppsGroup",
+        "panel": "new",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Flask",
+      "type": "shell",
+      "command": "flask --app main run",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}/python_apps/image_detect_flask"
+      },
+      "presentation": {
+        "group": "runAppsGroup",
+        "panel": "new",
+        "close": true
+      }
+    },
+    {
+      "label": "Run Prisma Studio (Postgres)",
+      "type": "shell",
+      "command": "pnpm -F database postgres:studio",
+      "isBackground": true,
+      "presentation": {
+        "group": "runPrismaStudioGroup",
+        "panel": "new",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Prisma Studio (Mongo)",
+      "type": "shell",
+      "command": "pnpm -F database mongo:studio",
+      "isBackground": true,
+      "presentation": {
+        "group": "runPrismaStudioGroup",
+        "panel": "new",
+        "close": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Server, Client and Flask",
+      "dependsOn": ["Run Server", "Run Client", "Run Flask"],
+      "presentation": {
+        "panel": "new",
+        "close": true
+      },
+      "isBackground": false,
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Prisma Studio (All)",
+      "dependsOn": ["Run Prisma Studio (Mongo)", "Run Prisma Studio (Postgres)"],
+      "presentation": {
+        "panel": "new",
+        "close": true
+      },
+      "isBackground": false
+    }
+  ]
+}

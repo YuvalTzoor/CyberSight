@@ -1,0 +1,52 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "pipeline": {
+    "shared#build": {
+      "dependsOn": ["database#build"]
+    },
+    "client#build": {
+      "dependsOn": ["shared#build"]
+    },
+    "server#build": {
+      "dependsOn": ["shared#build"]
+    },
+    "build": {
+      "env": [
+        "SERVER_PORT",
+        "DATABASE_PORT",
+        "JWT_ACCESS_SECRET",
+        "JWT_ACCESS_EXPIRATION",
+        "JWT_REFRESH_SECRET",
+        "JWT_REFRESH_EXPIRATION",
+        "FLASK_URL",
+        "FACES_AFTER_PREDICTION_PATH",
+        "FACES_UPLOAD_PATH",
+        "PROFILE_IMAGES_PATH"
+      ],
+      "outputs": ["dist/**", "dist/out-tsc/**"],
+      "dependsOn": ["^db:generate:all", "^build"]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.ts", "test/**/*.ts"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "deploy": {
+      "dependsOn": ["build", "test", "lint"]
+    },
+    "dev": {
+      "dependsOn": ["^db:generate:all"],
+      "cache": false,
+      "persistent": true
+    },
+    "db:generate:all": {
+      "cache": false
+    },
+    "db:push:all": {
+      "cache": false
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "final-project dev container",
+  "postCreateCommand": "pnpm install; pnpm -F=database db:push:all; pnpm build",
+  "dockerComposeFile": "docker-compose.yaml",
+  "shutdownAction": "stopCompose",
+  "service": "dev",
+  "forwardPorts": [3000, 4200, 5000, 5432],
+  "workspaceFolder": "/workspace",
+  "mounts": ["source=profile,target=/root,type=volume", "target=/root/.vscode-server,type=volume"],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Prisma.prisma",
+        "esbenp.prettier-vscode",
+        "Angular.ng-template",
+        "ms-azuretools.vscode-docker",
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "christian-kohler.npm-intellisense",
+        "ms-python.python"
+      ]
+    }
+  },
+  "remoteUser": "root",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "dockerDashComposeVersion": "v2"
+    }
+  }
+}

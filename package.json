@@ -1,0 +1,27 @@
+{
+  "name": "final-project",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "preinstall": "npx only-allow pnpm",
+    "dev": "turbo run dev --no-cache  --continue --parallel",
+    "lint": "turbo run lint"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@final-project/eslint-config-custom": "workspace:*",
+    "prettier": "^3.0.2",
+    "turbo": "^1.10.13"
+  },
+  "packageManager": "pnpm@8.7.1",
+  "prisma": {
+    "schema": "packages/database/prisma/postgres/schema.prisma"
+  }
+}
