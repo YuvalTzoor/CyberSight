@@ -43,11 +43,11 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
       Click on 'Show Log' in the bottom right corner to monitor the build process in real-time.
 
 2. **Run Project:**  
-   After the build completes, wait for the ZSH terminal to display 'Done. Press any key to close the terminal.' Then, navigate to the top bar in VS Code and click on 'Run Task' and select 'Run Server, Client, and Flask'.
+   After the build completes, wait for the ZSH terminal to display 'Done. Press any key to close the terminal.' Then, navigate to the top bar in VS Code and click on 'Run Task' and select 'Run Server, Client, and Flask'. <br />
    Alternatively, the following commands can be run: <br />
    Run server: `pnpm -F server dev` <br />
    Run client: `pnpm -F client dev` <br />
-   Run flask: `flask --app main run`
+   Run flask: `flask --app main run` <br />
    ![Example GIF](./run_tasks.gif)
 
 
@@ -56,8 +56,8 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
 
 ## Database UI Access
 
-To access the UI of the databases (Prisma Studio), go back to 'Run Task' in VS Code and select 'Run Prisma Studio (Postgres)', and then run another task and select: 'Run Prisma Studio (Mongo)'.
-Alternatively, the following commands can be run:<br />
+To access the UI of the databases (Prisma Studio), go back to 'Run Task' in VS Code and select 'Run Prisma Studio (Postgres)', and then run another task and select: 'Run Prisma Studio (Mongo)'. <br />
+Alternatively, the following commands can be run: <br />
 Prisma Studio - Postgres: `pnpm -F database postgres:studio`<br />
 Prisma Studio - Mongo: `pnpm -F database mongo:studio`
 
