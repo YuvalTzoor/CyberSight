@@ -44,10 +44,7 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
 
 2. **Run Project:**  
    After the build completes, wait for the ZSH terminal to display 'Done. Press any key to close the terminal.' Then, navigate to the top bar in VS Code and click on 'Run Task' and select 'Run Server, Client, and Flask'. <br />
-   Alternatively, the following commands can be run: <br />
-   Run server: `pnpm -F server dev` <br />
-   Run client: `pnpm -F client dev` <br />
-   Run flask: `flask --app main run` <br />
+   Alternatively, the following commands can be run: `pnpm -F server dev`, `pnpm -F client dev`, `flask --app main run` <br />
    ![Example GIF](./run_tasks.gif)
 
 
