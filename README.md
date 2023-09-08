@@ -43,8 +43,8 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
       Click on 'Show Log' in the bottom right corner to monitor the build process in real-time.
 
 2. **Run Project:**  
-   After the build completes, wait for the ZSH terminal to display 'Done. Press any key to close the terminal.' Then, navigate to the top bar in VS Code and click on 'Run Task' and select 'Run Server, Client, and Flask'. <br />
-   Alternatively, the following commands can be run: `pnpm -F server dev`, `pnpm -F client dev`, and `flask --app main run`
+   After the build completes, wait for the ZSH terminal to display 'Done. Press any key to close the terminal.' Then, navigate to the top bar in VS Code and click on 'Run Task' and select: 'Run Server, Client, and Flask'.
+   - Alternatively, the following commands can be run: `pnpm -F server dev`, `pnpm -F client dev`, and `flask --app main run`
    
    ![Example GIF](./run_tasks.gif)
 
