@@ -1,9 +1,12 @@
+<section align="center">
+<img src="/apps/client/src/favicon.ico" width="110" alt="Cybersight logo"/>
 
-# Cybersight 👁️
+# Cybersight
+
 Cybersight is our final project at Bar-Ilan University. We have been working on this project as part of our academic degree in the Department of Information Sciences.
 <br /><br />
 Deepfakes, or realistic synthetic media generated using machine learning algorithms, have become a major concern in recent years. Deepfakes can be used to spread disinformation or for malicious purposes, and it is often difficult to discern what's real and what's not. We have created an application that can identify whether a picture of a face is real or fake (i.e. created by artificial intelligence).
-
+</section>
 
 ## Table of Contents
 
@@ -35,7 +38,7 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
 
 ## Running the Project
 
-1. **Build Dev Container:**  
+1. **Build The Dev Container:**  
    Press `Ctrl+Shift+P` to open the command palette. Then, Type and select: 'Dev Containers: Build and Open in Container'. The container build process will start; this may take a few minutes.
 
     - **View Build Logs:**  
@@ -52,8 +55,8 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
 
 ## Databases UI Access
 
-To access the UI of the databases (Prisma Studio), go back to 'Run Task' in VS Code and select 'Run Prisma Studio (Postgres)', and then run another task and select: 'Run Prisma Studio (Mongo)'. <br />
-Alternatively, the following commands can be run: `pnpm -F database postgres:studio`, and `pnpm -F database mongo:studio`.
+To access the UI of the databases (Prisma Studio), go back to 'Run Task' in VS Code and select 'Run Prisma Studio (Postgres)', and then run another task and select: 'Run Prisma Studio (Mongo)'.
+  - Alternatively, the following commands can be run: `pnpm -F database postgres:studio`, and `pnpm -F database mongo:studio`.
 
 ## Authors
 
@@ -62,6 +65,8 @@ Alternatively, the following commands can be run: `pnpm -F database postgres:stu
 
 👤 **Saar Rozenthal**  
 - [GitHub](https://github.com/SaarRoz)
+
+<section>
 
 👤 **Shaked Partush**  
 - [GitHub](https://github.com/shak4560)
