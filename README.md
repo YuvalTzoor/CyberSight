@@ -54,9 +54,7 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
 ## Database UI Access
 
 To access the UI of the databases (Prisma Studio), go back to 'Run Task' in VS Code and select 'Run Prisma Studio (Postgres)', and then run another task and select: 'Run Prisma Studio (Mongo)'. <br />
-Alternatively, the following commands can be run: <br />
-Prisma Studio - Postgres: `pnpm -F database postgres:studio`<br />
-Prisma Studio - Mongo: `pnpm -F database mongo:studio`
+Alternatively, the following commands can be run: `pnpm -F database postgres:studio`, and `pnpm -F database mongo:studio`.
 
 ## Authors
 
