@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../node_modules/@prisma/postgres/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_DATABASE_URL")
+}
+
+model Image {
+  id            Int      @id @default(autoincrement())
+  name          String
+  path          String
+  pathAfterZoom String?
+  isFake        Boolean
+  createdAt     DateTime @default(now())
+
+  // Relation fields
+  prediction Prediction?
+}
+
+model Prediction {
+  id           Int      @id @default(autoincrement())
+  logreg       Boolean
+  svclassifier Boolean
+  neural_net   Boolean
+  createdAt    DateTime @default(now())
+
+  // Relation fields
+  imageId Int?   @unique @map("image_id")
+  image   Image? @relation(fields: [imageId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  userId  Int?
+  user    User?  @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+}
+
+model User {
+  id               Int      @id @default(autoincrement())
+  email            String   @unique
+  password         String
+  firstName        String   @db.VarChar(32)
+  lastName         String   @db.VarChar(32)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  role             Role     @default(USER)
+  profileImagePath String?  @db.VarChar(180)
+
+  // Relation fields
+  predictions Prediction[]
+  tokens      Token[]
+}
+
+model Token {
+  id           String   @id @unique @default(uuid())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  expiresAt    DateTime
+  refreshToken String
+
+  // Relation fields
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+}
+
+enum Role {
+  USER
+  ADMIN
+}

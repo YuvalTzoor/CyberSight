@@ -1,0 +1,38 @@
+h1 {
+  font-size: 3.1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  padding-bottom: 1.1rem;
+  position: relative;
+  margin: 0 0 1.2em 1em;
+  font-family: "Courier New";
+}
+
+h1::before {
+  left: 0;
+  width: 0%;
+  content: "";
+  position: absolute;
+  animation: loading 1s linear forwards;
+  bottom: 0;
+  height: 4px;
+  background-color: #111;
+}
+
+@keyframes loading {
+  0% {
+    width: 0px;
+  }
+  50% {
+    width: 50px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    padding-top: 1.1rem;
+  }
+}

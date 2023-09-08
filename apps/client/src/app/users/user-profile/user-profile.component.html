@@ -1,0 +1,96 @@
+<app-main-heading>Edit Profile</app-main-heading>
+
+<section class="wrapper">
+  <form [formGroup]="userForm" (ngSubmit)="update()">
+    <div class="left-side">
+      <mat-spinner *ngIf="hasProfileImage === true && !profileImage && profileImage !== ''"></mat-spinner>
+
+      <img class="image-card" [src]="profileImage || '/assets/blank-profile.png'" alt="Your Image" />
+      <input
+        type="file"
+        id="fileInput"
+        name="fileInput"
+        [accept]="allowedTypes"
+        (change)="selectFileFromInputElement($event)"
+        #fileInput
+        hidden
+        [formControl]="userForm.controls.profileImage"
+      />
+
+      <app-custom-animated-button (buttonClick)="fileInput.click()">Select Image</app-custom-animated-button>
+    </div>
+
+    <div class="right-side">
+      <mat-form-field appearance="fill">
+        <mat-label>First Name:</mat-label>
+        <input matInput name="firstName" type="text" [formControl]="userForm.controls.firstName" />
+        <mat-error *ngIf="userForm.controls.firstName.invalid">{{ getError(userForm.controls.firstName) }}"</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name:</mat-label>
+        <input matInput name="lastName" type="text" [formControl]="userForm.controls.lastName" />
+        <mat-error *ngIf="userForm.controls.lastName.invalid">{{ getError(userForm.controls.lastName) }}"</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email:</mat-label>
+        <input matInput [formControl]="userForm.controls.email" />
+        <mat-error *ngIf="userForm.controls.email.invalid">{{ getError(userForm.controls.email) }}"</mat-error>
+      </mat-form-field>
+      <mat-slide-toggle [formControl]="userForm.controls.changePassword" id="change-password-slide-toggle"
+        >Change Password</mat-slide-toggle
+      >
+      <div
+        [@openClose]="userForm.controls.changePassword.value === true ? 'open' : 'closed'"
+        class="change-password-container"
+        *ngIf="userForm.controls.changePassword.value === true"
+      >
+        <mat-form-field appearance="fill">
+          <mat-label>Current Password:</mat-label>
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            autocomplete="current-password"
+            [formControl]="userForm.controls.password"
+          />
+          <mat-error *ngIf="userForm.controls.password.invalid">{{ getError(userForm.controls.password) }}"</mat-error>
+
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword"
+          >
+            <mat-icon>{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>New Password:</mat-label>
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            autocomplete="New-password"
+            [formControl]="userForm.controls.newPassword"
+          />
+          <mat-error *ngIf="userForm.controls.newPassword.invalid"
+            >{{ getError(userForm.controls.newPassword) }}"</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <app-custom-animated-button
+        class="form-button"
+        id="update-button"
+        type="submit"
+        [isDisabled]="!userForm.touched || !userForm.valid"
+      >
+        Update
+      </app-custom-animated-button>
+
+      <app-custom-animated-button class="form-button" backgroundColor="red" (buttonClick)="deleteUser()">
+        Delete User
+      </app-custom-animated-button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,33 @@
+.custom-glowing-button {
+  font-family: "Courier New";
+  padding: 0.7em 2em;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 500% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  cursor: pointer;
+  width: inherit;
+  font-weight: 500;
+  background-image: linear-gradient(to bottom right, rgb(3, 151, 151), rgb(10, 97, 140));
+}
+
+.custom-glowing-button:disabled {
+  background-image: linear-gradient(15deg, #828282 0%, #666262 50%);
+  cursor: not-allowed;
+  color: #888888;
+}
+
+.custom-glowing-button:active {
+  transform: scale(0.95);
+}
+
+.custom-glowing-button:hover:not([disabled]),
+.custom-glowing-button:focus:not([disabled]) {
+  box-shadow:
+    0 0 0.2rem rgba(0, 0, 0, 0.5),
+    -0.12rem -0.12rem 1rem rgba(3, 151, 151, 0.5),
+    0.12rem 0.12rem 1rem rgba(10, 97, 140, 0.5);
+}

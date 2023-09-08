@@ -1,0 +1,13 @@
+<button
+  [type]="type"
+  (click)="onClick($event)"
+  [disabled]="isDisabled"
+  class="custom-animated-button"
+  [ngClass]="{
+    blackBackground: backgroundColor === 'black',
+    pinkBackground: backgroundColor === 'pink',
+    redBackground: backgroundColor === 'red'
+  }"
+>
+  <ng-content></ng-content>
+</button>

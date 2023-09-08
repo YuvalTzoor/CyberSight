@@ -1,0 +1,67 @@
+<app-main-heading>User Register</app-main-heading>
+
+<section class="wrapper">
+  <div class="form-wrapper">
+    <form [formGroup]="registerForm" (ngSubmit)="sendForm()">
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput [formControl]="registerForm.controls.firstName" autocomplete="name" type="text" required />
+        <mat-error *ngIf="registerForm.controls.firstName.invalid">{{
+          getError(registerForm.controls.firstName)
+        }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          [formControl]="registerForm.controls.lastName"
+          autocomplete="family-name"
+          type="text"
+          required
+        />
+        <mat-error *ngIf="registerForm.controls.lastName.invalid">{{
+          getError(registerForm.controls.lastName)
+        }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="registerForm.controls.email" required autocomplete="email" type="email" />
+        <mat-error *ngIf="registerForm.controls.email.invalid">{{ getError(registerForm.controls.email) }}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="last-field" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          [formControl]="registerForm.controls.password"
+          [type]="hidePassword ? 'password' : 'text'"
+          autocomplete="current-password"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword"
+        >
+          <mat-icon>{{ hidePassword ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="registerForm.controls.password.invalid">{{
+          getError(registerForm.controls.password)
+        }}</mat-error>
+      </mat-form-field>
+
+      <app-custom-animated-button [isDisabled]="isButtonDisabled || !registerForm.valid" type="submit">
+        {{ "Register" | uppercase }}
+      </app-custom-animated-button>
+    </form>
+  </div>
+  <div class="existing-user-card">
+    <h2>Already have an account?</h2>
+    <p>You can sign in with your existing account.</p>
+
+    <app-custom-animated-button (buttonClick)="navigateToLogin()">
+      {{ "Login" | uppercase }}
+    </app-custom-animated-button>
+  </div>
+</section>

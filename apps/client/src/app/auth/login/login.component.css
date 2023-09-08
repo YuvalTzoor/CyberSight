@@ -1,0 +1,64 @@
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5em;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.wrapper div {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  background-color: rgba(255, 255, 255, 0.147);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.form-wrapper {
+  width: 30vw;
+  min-width: 450px;
+}
+
+.wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 2em;
+  width: 30%;
+  min-width: 300px;
+  gap: 1em;
+}
+
+form mat-form-field {
+  width: 100%;
+}
+
+.button-wrapper {
+  display: flex;
+}
+
+.last-field {
+  margin-bottom: 0.4em;
+}
+
+.existing-user-card {
+  padding: 2em;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.existing-user-card h2 {
+  color: #495057;
+  margin-bottom: 10px;
+}
+
+.existing-user-card p {
+  color: #6c757d;
+  margin-bottom: 20px;
+}

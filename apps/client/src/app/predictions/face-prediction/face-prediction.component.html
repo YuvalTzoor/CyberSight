@@ -1,0 +1,71 @@
+<app-main-heading>CyberSight</app-main-heading>
+<section>
+  <div class="left-wrapper">
+    <mat-card appearance="outlined" class="image-card" [ngClass]="{ 'set-size': !fileToUpload }">
+      <mat-card-title *ngIf="fileToUpload"> {{ fileToUpload.name }}</mat-card-title>
+      <div *ngIf="!fileToUpload" class="select-image" appFileDnd (fileDropped)="selectFile($event)">
+        <h3>Drag and drop image here</h3>
+        <h3>or</h3>
+        <app-custom-animated-button (buttonClick)="fileInput.click()">
+          <input
+            hidden
+            type="file"
+            id="fileInput"
+            name="fileInput"
+            [accept]="allowedTypes"
+            (change)="selectFileFromInputElement($event)"
+            #fileInput
+          />
+          Select Image
+        </app-custom-animated-button>
+      </div>
+      <div
+        class="image-wrapper"
+        *ngIf="fileToUpload !== null && fileToUpload !== undefined"
+        [@expandCollapse]="fileToUpload ? 'expanded' : 'collapsed'"
+      >
+        <img class="image-preview" [src]="previewImage" alt="Image Preview" />
+      </div>
+    </mat-card>
+    <mat-progress-bar *ngIf="previewImage && uploadButtonDisabled" mode="indeterminate"></mat-progress-bar>
+    <div class="buttons-div" *ngIf="fileToUpload">
+      <app-custom-glowing-button
+        *ngIf="fileToUpload && showTestImageButton"
+        [isDisabled]="uploadButtonDisabled"
+        (buttonClick)="fileToUpload ? predict() : null"
+        >Test Image</app-custom-glowing-button
+      >
+
+      <app-custom-animated-button
+        (buttonClick)="fileToUpload ? cleanFile() : null"
+        backgroundColor="red"
+        [isDisabled]="!fileToUpload"
+      >
+        Clean
+      </app-custom-animated-button>
+    </div>
+  </div>
+
+  <div class="right-wrapper" [@expandCollapse]="prediction ? 'expanded' : 'collapsed'">
+    <ng-container *ngIf="prediction">
+      <div class="results-wrapper" *ngIf="fileToUpload">
+        <h3>Model results:</h3>
+        <ul class="predictions-list">
+          <li>
+            <span>Logistic_Regression: {{ prediction.logreg ? "1 (Fake)" : "0 (Real)" }}</span>
+          </li>
+          <li>
+            <span>SVM: {{ prediction.svclassifier ? "1 (Fake)" : "0 (Real)" }}</span>
+          </li>
+          <li>
+            <span>Neural_Network: {{ prediction.neural_net ? "1 (Fake)" : "0 (Real)" }}</span>
+          </li>
+        </ul>
+        <p>{{ fakePercentage }}% Fake</p>
+        <div class="progress-bar-wrapper">
+          <div class="progress-bar" [style.width.%]="fakePercentage"></div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>

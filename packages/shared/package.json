@@ -1,0 +1,21 @@
+{
+  "name": "@final-project/shared",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "tsc -w",
+    "build": "tsc",
+    "lint": "eslint --ext .ts src"
+  },
+  "dependencies": {
+    "joi": "^17.10.0",
+    "joi-password": "^4.1.1"
+  },
+  "devDependencies": {
+    "@final-project/database": "workspace:*",
+    "@final-project/eslint-config-custom": "workspace:*",
+    "eslint": "^8.48.0",
+    "typescript": "~5.2.2"
+  }
+}

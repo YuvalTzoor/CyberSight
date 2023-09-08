@@ -1,0 +1,4 @@
+{
+  "root": true,
+  "extends": ["@final-project/eslint-config-custom"]
+}

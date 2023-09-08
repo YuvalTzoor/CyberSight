@@ -1,0 +1,36 @@
+{
+  "name": "@final-project/database",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "postgres:generate": "prisma generate --schema=./prisma/postgres/schema.prisma",
+    "postgres:push": "prisma db push --schema=./prisma/postgres/schema.prisma",
+    "postgres:studio": "prisma studio --schema=./prisma/postgres/schema.prisma",
+    "mongo:generate": "prisma generate --schema=./prisma/mongo/schema.prisma",
+    "mongo:push": "prisma db push --schema=./prisma/mongo/schema.prisma",
+    "mongo:studio": "prisma studio --schema=./prisma/mongo/schema.prisma",
+    "db:generate:all": "pnpm postgres:generate && pnpm mongo:generate",
+    "db:push:all": "pnpm postgres:push && pnpm mongo:push",
+    "dev": "tsc -w",
+    "build": "tsc",
+    "lint": "eslint --ext .ts src"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.2.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.2.0",
+    "typescript": "~5.2.2",
+    "@final-project/eslint-config-custom": "workspace:*",
+    "eslint": "^8.48.0"
+  },
+  "prisma": {
+    "schema": [
+      "prisma/postgres/schema.prisma"
+    ]
+  }
+}

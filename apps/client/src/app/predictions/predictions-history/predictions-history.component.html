@@ -1,0 +1,78 @@
+<app-main-heading>History</app-main-heading>
+
+<section class="wrapper">
+  <mat-progress-bar *ngIf="loadingFlag" mode="indeterminate"></mat-progress-bar>
+
+  <mat-table class="history-table" [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef> Select </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="$event ? selection.toggle(element) : null"
+          [checked]="selection.isSelected(element)"
+        >
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="modelResults">
+      <mat-header-cell *matHeaderCellDef class="cell_model_results"> Model results </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="cell_model_results">
+        <ul class="predictions-list">
+          <li>
+            <span>Logistic_Regression: {{ element.logreg ? "1 (Fake)" : "0 (Real)" }}</span>
+          </li>
+          <li>
+            <span>Neural_Network: {{ element.svclassifier ? "1 (Fake)" : "0 (Real)" }}</span>
+          </li>
+          <li>
+            <span>SVM: {{ element.neural_net ? "1 (Fake)" : "0 (Real)" }}</span>
+          </li>
+        </ul>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fakePercentage">
+      <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by percentage">
+        Chance of a fake face
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.fakePercentage }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date"> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.createdAt | date: "dd/MM/yyyy hh:mm a" }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="image-cell">
+        <ng-container *ngIf="element.image | async as image; else imageIsLoading">
+          <img [src]="image" [alt]="'face ' + element.imageId" />
+        </ng-container>
+        <ng-template #imageIsLoading>
+          <mat-spinner></mat-spinner>
+        </ng-template>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns" (click)="selection.toggle(row)"></mat-row>
+  </mat-table>
+  <div class="table-bottom">
+    <div class="buttons-wrapper">
+      <button mat-raised-button color="warn" (click)="deleteSelectedRows()" [disabled]="buttonsDisabled">
+        Delete selected
+      </button>
+      <button mat-raised-button (click)="exportAsCSV()" [disabled]="buttonsDisabled">Export as CSV</button>
+    </div>
+    <div>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,266 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto 2em;
+  width: 80vw;
+  line-height: 1.7;
+}
+
+.left-side,
+.right-side {
+  display: flex;
+  padding: 1em;
+  border-radius: 15px;
+  margin-bottom: 4em;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 97%;
+  flex-wrap: wrap;
+}
+
+.left-side:hover,
+.right-side:hover,
+.left-side:focus,
+.right-side:focus {
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
+}
+
+.left-side {
+  flex-direction: row;
+}
+
+.right-side {
+  flex-direction: row-reverse;
+}
+
+p {
+  word-break: break-word;
+  font-size: 1.4rem;
+}
+
+.thispersondoesnotexist-wrapper {
+  margin-top: 10%;
+  background-color: #92b3c3;
+  border-radius: 10px;
+  padding: 0.5em;
+  font-weight: 300;
+}
+
+#thispersondoesnotexist-link {
+  color: #0057a8;
+  text-decoration: none;
+}
+
+#thispersondoesnotexist-link:hover,
+#thispersondoesnotexist-link:focus {
+  text-decoration: underline;
+}
+
+.side-image {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  border: 2px solid rgb(229, 229, 229);
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.text {
+  flex: 1;
+  padding: 2em;
+}
+
+.animated-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: a-ltr-after 2s cubic-bezier(0.76, 0, 0.18, 1) forwards;
+  transform: translateX(-101%);
+}
+
+.animated-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #d8d8d8;
+  animation: a-ltr-before 2s cubic-bezier(0.76, 0, 0.18, 1) forwards;
+  transform: translateX(0);
+}
+
+@keyframes a-ltr-after {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes a-ltr-before {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9em;
+  padding: 1em;
+}
+
+.student-list li {
+  display: flex;
+  position: relative;
+  background-color: #c7ced038;
+  align-items: center;
+  gap: 2em;
+  padding: 0.6em;
+  flex-wrap: wrap;
+}
+
+.student-list li:hover,
+.student-list li:focus {
+  transform: scale(0.95);
+  transition: all 0.5s ease 0s;
+}
+
+.student-list li:hover h3,
+.student-list li:focus h3 {
+  transition: all 0.5s ease 0s;
+  background-color: rgb(23, 118, 131);
+  transform: rotate(0deg);
+}
+
+.student-list li:nth-of-type(even) {
+  background-color: #92b3c3;
+  text-align: right;
+}
+
+.student-list li:hover .image-wrapper,
+.student-list li:focus .image-wrapper {
+  transition: all 0.5s ease 0s;
+  transform: rotate(-1deg);
+  padding: 0.1em;
+}
+
+.student-list li h3 {
+  background-color: cadetblue;
+  padding: 0.55em 0.7em;
+  border-radius: 10px;
+  margin-left: 3em;
+}
+
+.image-wrapper {
+  width: 10vmin;
+  height: 10vmin;
+  min-height: 75px;
+  min-width: 75px;
+  transform: rotate(-5deg);
+  transition: all 0.5s ease 0s;
+  border-radius: 10px;
+  margin-left: -2.9em;
+  padding: 0.5em;
+  width: 8vmin;
+  height: 8vmin;
+  background: linear-gradient(-90deg, #747476 0 67%, #152c48 0% 100%);
+  position: absolute;
+  z-index: 1;
+}
+
+.image-wrapper img {
+  width: 100%;
+}
+
+.github-link {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  background-color: #92b3c3c9;
+  padding: 0.4em;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  color: black;
+  text-decoration: none;
+}
+
+.student-list li:nth-of-type(even) .github-link {
+  background-color: #d3d9db;
+}
+
+.github-link:hover,
+.github-link:focus {
+  transform: scale(1.07);
+  transition: all 0.2s ease 0s;
+  border: 1px solid black;
+  text-decoration: underline;
+}
+
+.github-link img {
+  width: 30px;
+}
+
+@media (max-width: 768px) {
+  .side-image {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .text {
+    padding: 0.25em;
+  }
+}
+
+@media (max-width: 1300px) {
+  .wrapper {
+    margin: 1em auto;
+    width: 95vw;
+  }
+
+  .left-side,
+  .right-side {
+    margin: 1em 0;
+    width: 100%;
+  }
+
+  .student-list li {
+    padding: 0;
+    gap: 0.7em;
+  }
+
+  .student-list h3 {
+    background-color: unset;
+    margin: 0;
+  }
+
+  .github-link {
+    position: initial;
+    flex-basis: 100%;
+  }
+
+  .image-wrapper {
+    margin: 0;
+    position: initial;
+  }
+}

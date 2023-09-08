@@ -1,0 +1,42 @@
+<section class="wrapper">
+  <div class="content-wrapper">
+    <h1 class="site-title">
+      <span class="title-letter">C</span>
+      <span class="title-letter">y</span>
+      <span class="title-letter">b</span>
+      <span class="title-letter">e</span>
+      <span class="title-letter">r</span>
+      <span class="title-letter">S</span>
+      <span class="title-letter">i</span>
+      <span class="title-letter">g</span>
+      <span class="title-letter">h</span>
+      <span class="title-letter">t</span>
+    </h1>
+    <h2 class="site-subtitle">Unveiling the Hidden Truth Under The Pixels.</h2>
+
+    <div class="button-wrapper">
+      <app-custom-animated-button
+        *ngIf="(isLoggedIn$ | async) === false"
+        [routerLink]="routesConfig.routes.auth.register"
+      >
+        Register
+      </app-custom-animated-button>
+      <app-custom-animated-button *ngIf="(isLoggedIn$ | async) === false" [routerLink]="routesConfig.routes.about">
+        About
+      </app-custom-animated-button>
+    </div>
+
+    <button
+      mat-stroked-button
+      class="login-button"
+      [routerLink]="routesConfig.routes.auth.login"
+      *ngIf="(isLoggedIn$ | async) === false"
+    >
+      Login
+    </button>
+  </div>
+
+  <div class="robot-image-wrapper">
+    <img src="assets/robot1.png" alt="Robot" />
+  </div>
+</section>

@@ -1,0 +1,48 @@
+<header>
+  <nav>
+    <div class="menu-wrapper" [ngClass]="{ 'hambunger-container': showHamburger }">
+      <div id="hambunger" (click)="toggleMenu()" [ngClass]="{ open: isHambungerOpen }">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul [ngClass]="{ 'hambunger-container': !showHamburger }">
+        <li *ngIf="(isLoggedIn$ | async) === false; else isLoggedIn">
+          <a [routerLink]="routesConfig.routes.home" (click)="closeMenu()"> Home</a>
+        </li>
+        <ng-template #isLoggedIn>
+          <li>
+            <a [routerLink]="routesConfig.routes.prediction.facePrediction" (click)="closeMenu()">CyberSight</a>
+          </li>
+          <li>
+            <a [routerLink]="routesConfig.routes.prediction.predictionsHistory" (click)="closeMenu()">History</a>
+          </li>
+          <li>
+            <a [routerLink]="routesConfig.routes.about" (click)="closeMenu()">About</a>
+          </li>
+
+          <li class="user-li" *ngIf="currentUser$ | async as currentUser">
+            <div class="user-li-wrapper">
+              <a id="user-name">Hello {{ currentUser.firstName }}</a>
+              <ng-container *ngIf="currentUser.profileImage$ | async as profileImage; else blankProfileImage">
+                <img class="profile-image" [src]="profileImage" alt="Profile Image" matListAvatar />
+              </ng-container>
+              <ng-template #blankProfileImage>
+                <div class="blank-profile-image profile-image">
+                  {{ (currentUser.firstName ? currentUser.firstName.charAt(0) : "") | uppercase }}
+                </div>
+              </ng-template>
+            </div>
+
+            <div class="dropdown-menu">
+              <a [routerLink]="routesConfig.routes.user.profile" (click)="closeMenu()">Edit Profile</a>
+              <a [routerLink]="routesConfig.routes.home" (click)="closeMenu(); logOut()">Log out</a>
+            </div>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </nav>
+</header>

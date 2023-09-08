@@ -51,7 +51,6 @@
       "command": "pnpm -F database postgres:studio",
       "isBackground": true,
       "presentation": {
-        "group": "runPrismaStudioGroup",
         "panel": "new",
         "close": true
       },
@@ -63,14 +62,13 @@
       "command": "pnpm -F database mongo:studio",
       "isBackground": true,
       "presentation": {
-        "group": "runPrismaStudioGroup",
         "panel": "new",
         "close": true
       },
       "problemMatcher": []
     },
     {
-      "label": "Run Server, Client and Flask",
+      "label": "Run Server, Client, and Flask",
       "dependsOn": ["Run Server", "Run Client", "Run Flask"],
       "presentation": {
         "panel": "new",
@@ -78,15 +76,6 @@
       },
       "isBackground": false,
       "problemMatcher": []
-    },
-    {
-      "label": "Run Prisma Studio (All)",
-      "dependsOn": ["Run Prisma Studio (Mongo)", "Run Prisma Studio (Postgres)"],
-      "presentation": {
-        "panel": "new",
-        "close": true
-      },
-      "isBackground": false
     }
   ]
 }
