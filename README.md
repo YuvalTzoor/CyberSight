@@ -3,8 +3,8 @@
 
 # Cybersight
 
-Cybersight is our final project at Bar-Ilan University. We have been working on this project as part of our academic degree in the Department of Information Sciences.
-<br /><br />
+**Cybersight is our final project at Bar-Ilan University. We have been working on this project as part of our academic degree in the Department of Information Sciences.**
+
 Deepfakes, or realistic synthetic media generated using machine learning algorithms, have become a major concern in recent years. Deepfakes can be used to spread disinformation or for malicious purposes, and it is often difficult to discern what's real and what's not. We have created an application that can identify whether a picture of a face is real or fake (i.e. created by artificial intelligence).
 
 </section>
@@ -30,35 +30,37 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
 
 2. **Launch Docker Desktop:**  
    After installation, launch the Docker Desktop application.
-
-3. **Clone The Repository:**  
+   
+3. **Install Dev Containers Extension:**  
+   In VS Code, navigate to the Extensions Marketplace and install the 'Dev Containers' extension.
+   
+4. **Clone The Repository:**  
    Clone this repository locally and open it in VS Code.
 
-4. **Install Dev Containers Extension:**  
-   In VS Code, navigate to the Extensions Marketplace and install the 'Dev Containers' extension.
+
 
 ## Running the Project
 
 1. **Build The Dev Container:**  
-   Press `Ctrl+Shift+P` to open the command palette. Then, Type and select: 'Dev Containers: Build and Open in Container'. The container build process will start; this may take a few minutes.
+   Press `F1` or `Ctrl+Shift+P` to open the VS Code command palette. Then, Type and select: 'Dev Containers: Build and Open in Container' (or 'Dev Containers: Rebuild and Reopen in Container'. The container build process will start; this may take a few minutes.
 
    - **View Build Logs:**  
      Click on 'Show Log' in the bottom right corner to monitor the build process in real-time.
+     <img src="https://i.ibb.co/Yj87Yn1/showlog-vscode.jpg" width="410" alt="Showlog bottom in VS Code"/>
 
 2. **Run Project:**  
-   After the build completes, wait for the ZSH terminal to display 'Done. Press any key to close the terminal.' Then, navigate to the top bar in VS Code and click on 'Run Task' and select: 'Run Server, Client, and Flask'.
+   After the build completes, wait for the ZSH terminal to display 'Done. Press any key to close the terminal.'
+   <img src="https://i.ibb.co/3ywxZMN/build-done.jpg" width="750" alt="Showlog bottom in VS Code"/>
 
-   ![Example GIF](./run_tasks.gif)
-
+    Then, navigate to the top bar in VS Code and click on 'Run Task' and select: 'Run Server, Client, and Flask'.
    - Alternatively, the following commands can be run: `pnpm -F server dev`, `pnpm -F client dev`, and `cd python_apps/image_detect_flask/ && flask --app main run`.
 
-3. **Open the Web Application:**  
+4. **Open the Web Application:**  
    When the tasks are finished loading, open your web browser and go to: [http://localhost:4200](http://localhost:4200), to access the client-side homepage.
 
 ## Databases UI Access
 
 To access the UI of the databases (Prisma Studio), go back to 'Run Task' in VS Code and select 'Run Prisma Studio (Postgres)', and then run another task and select: 'Run Prisma Studio (Mongo)'.
-
 - Alternatively, the following commands can be run: `pnpm -F database postgres:studio`, and `pnpm -F database mongo:studio`.
 
 ## Authors
