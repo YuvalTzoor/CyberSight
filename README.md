@@ -42,7 +42,7 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
 ## Running the Project
 
 1. **Build The Dev Container:**  
-   Press `F1` or `Ctrl+Shift+P` to open the VS Code command palette. Then, Type and select: 'Dev Containers: Build and Open in Container' (or 'Dev Containers: Rebuild and Reopen in Container'. The container build process will start; this may take a few minutes.
+   Press `F1` or `Ctrl+Shift+P` to open the VS Code command palette. Then, type and select: 'Dev Containers: Build and Open in Container' (or 'Dev Containers: Rebuild and Reopen in Container'). The container build process will start; this may take a few minutes.
 
    - **View Build Logs:**  
      Click on 'Show Log' in the bottom right corner to monitor the build process in real-time.
