@@ -57,7 +57,7 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
    - Alternatively, the following commands can be run: `pnpm -F server dev`, `pnpm -F client dev`, and `cd python_apps/image_detect_flask/ && flask --app main run`.
 
 4. **Open the Web Application:**  
-   When the tasks are finished loading, open your web browser and go to: [http://localhost:4200](http://localhost:4200), to access the client-side homepage.
+   When the tasks have finished loading, open your web browser and go to  [http://localhost:4200](http://localhost:4200), to access the client-side homepage.
 
 ## Databases UI Access
 
