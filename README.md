@@ -16,6 +16,7 @@ Deepfakes, or realistic synthetic media generated using machine learning algorit
 3. [Running the Project](#running-the-project)
 4. [Databases UI Access](#databases-ui-access)
 5. [Authors](#authors)
+6. [An article on the technique](#an-article-on-the-technique)
 
 ## Prerequisites
 
@@ -82,3 +83,12 @@ To access the UI of the databases (Prisma Studio), go back to 'Run Task' in VS C
 👤 **Yuval Abramovich**
 
 - [GitHub](https://github.com/Yuvalabra)
+
+
+
+## An article on the technique
+
+**The technique for identifying deepfakes is based on the following article:**
+
+Durall, R., Keuper, M., Pfreundt, F. J., & Keuper, J. (2019). *Unmasking deepfakes with simple features*. </br>
+&nbsp;&nbsp;&nbsp;&nbsp;arXiv preprint arXiv:1911.00686.
