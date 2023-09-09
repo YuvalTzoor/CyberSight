@@ -1,9 +1,9 @@
 <section align="center">
 <img src="/apps/client/src/favicon.ico" width="110" alt="Cybersight logo"/>
 
-# Cybersight
+# CyberSight
 
-**Cybersight is our final project at Bar-Ilan University. We have been working on this project as part of our academic degree in the Department of Information Sciences.**
+**CyberSight is our final project at Bar-Ilan University. We have been working on this project as part of our academic degree in the Department of Information Sciences.**
 
 Deepfakes, or realistic synthetic media generated using machine learning algorithms, have become a major concern in recent years. Deepfakes can be used to spread disinformation or for malicious purposes, and it is often difficult to discern what's real and what's not. We have created an application that can identify whether a picture of a face is real or fake (i.e. created by artificial intelligence).
 
