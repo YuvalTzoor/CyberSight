@@ -37,4 +37,4 @@ RUN git clone --depth 1 -- "https://github.com/marlonrichert/zsh-autocomplete.gi
 RUN sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete)/g' ~/.zshrc
 
 # Add Angular CLI autocompletion command to .zshrc
-RUN printf "\n# Angular CLI autocompletion\nsource <(ng completion script)" >> ~/.zshrc
+RUN printf "\n\n# Angular CLI autocompletion\nsource <(ng completion script)" >> ~/.zshrc
