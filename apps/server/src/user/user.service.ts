@@ -23,6 +23,8 @@ export class UserService {
         id,
       },
     });
+
+
     return {
       id: user.id,
       firstName: user.firstName,
